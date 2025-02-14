@@ -5,7 +5,7 @@ Este repositório contém um exemplo de como integrar a API do SIENGE com o Powe
 
 ## Como usar
 
-1. Substitua o URL da API no código pela URL da sua instância do SIENGE.
+1. Substitua o URL da API no código pela URL da sua instância do SIENGE. (De exemplo, usarei uma api que puxa o planejamento.)
 2. Use a função `GETAPIDATA` para puxar os dados da API.
 3. Crie uma tabela auxiliar de offset para lidar com a paginação.
 
@@ -15,7 +15,7 @@ Função GetAPIData
 = (Offset as number) as table =>
 let
     Fonte = Json.Document(Web.Contents(
-        "https://api.sienge.com.br/{SeuDomínio}/public/api/v1/building-projects/{project_id}/sheets/{sheet_id}/tasks", 
+        "https://api.sienge.com.br/{SeuDomínio}/public/api/v1/building-projects/{NúmeroDoProjeto}/sheets/2/tasks?offset=0&limit=200", 
         [Query=[offset=Text.From(Offset), limit="200"]]
     )),
     Dados = Fonte[results],
