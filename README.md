@@ -10,8 +10,8 @@ Este repositório contém um exemplo de como integrar a API do SIENGE com o Powe
 3. Crie uma tabela auxiliar de offset para lidar com a paginação.
 
 ## Exemplo de código
-
 ```powerquery
+Função GetAPIData
 = (Offset as number) as table =>
 let
     Fonte = Json.Document(Web.Contents(
@@ -22,3 +22,12 @@ let
     Tabela = Table.FromRecords(Dados)
 in
     Tabela
+```
+```
+Função OffsetList
+= List.Generate(() => 0, each _ < 1600, each _ + 200)
+```
+```
+Função Coluna para puxar a API
+= try GetAPIData([Offset]) otherwise null
+```
