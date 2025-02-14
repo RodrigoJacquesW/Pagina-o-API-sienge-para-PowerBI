@@ -5,9 +5,11 @@ Este repositório contém um exemplo de como integrar a API do SIENGE com o Powe
 
 ## Como usar
 
-1. Substitua o URL da API no código pela URL da sua instância do SIENGE. (De exemplo, usarei uma api que puxa o planejamento.)
-2. Use a função `GETAPIDATA` para puxar os dados da API.
-3. Crie uma tabela auxiliar de offset para lidar com a paginação.
+1. Abra o PowerQuery.
+2. Crei uma função nula e use a função `GETAPIDATA` para puxar os dados da API.
+3. Substitua o URL da API no código pela URL da sua instância do SIENGE. (De exemplo, usarei uma api que puxa o planejamento.)
+4. Crie outra tabela usando a consulta nula e utilizando a função OffsetList.
+5. Por fim, na tabela Offset, crie uma coluna personalizada com a formula de puxar a API
 
 ## Exemplo de código
 ```powerquery
